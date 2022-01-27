@@ -43,7 +43,7 @@ typedValidator = Scripts.mkTypedValidator @Typed
     $$(PlutusTx.compile [|| mkValidator ||])
     $$(PlutusTx.compile [|| wrap ||])
   where
-    wrap = Scripts.wrapValidator 
+    wrap = Scripts.wrapValidator @() @(Bool, Bool)
 
 validator :: Validator
 validator = Scripts.validatorScript typedValidator
