@@ -49,8 +49,8 @@ PlutusTx.unstableMakeIsData ''VestingDatum
 mkValidator :: VestingDatum -> () -> ScriptContext -> Bool
 mkValidator d _ ctx =
   if deadlineReached
-    then traceIfFalse "beneficiary1's signature missing" $ signedBy $ beneficiary1 d
-    else traceIfFalse "beneficiary2's signature missing" $ signedBy $ beneficiary2 d
+    then traceIfFalse "beneficiary2's signature missing" $ signedBy $ beneficiary2 d
+    else traceIfFalse "beneficiary1's signature missing" $ signedBy $ beneficiary1 d
   where
     info :: TxInfo
     info = scriptContextTxInfo ctx
